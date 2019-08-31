@@ -1,5 +1,5 @@
 # volk
-version = 1.4
+version = 2.0.0
 release = 1
 name = volk
 full_name = $(name)-$(version)

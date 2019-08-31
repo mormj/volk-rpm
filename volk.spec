@@ -7,10 +7,11 @@ License:		GPLv3
 URL:            https://github.com/gnuradio/volk
 Source:         %{name}-%{version}.tar.gz      
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-BuildRequires:  cmake
+BuildRequires:  cmake3
 BuildRequires:  python-mako
 BuildRequires:  python-six
 BuildRequires:  boost-devel
+BuildRequires:  orc-devel
 
 %description
 The Vector Optimized Library of Kernels
@@ -35,7 +36,8 @@ Python files for %{name}.
 %setup
 
 %build
-%cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
+cmake3 -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DLIB_SUFFIX=64 -DLIB_INSTALL_DIR:PATH=/usr/lib64
+
 make %{?_smp_mflags}
 
 %install
