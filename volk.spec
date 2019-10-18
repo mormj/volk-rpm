@@ -8,8 +8,8 @@ URL:            https://github.com/gnuradio/volk
 Source:         %{name}-%{version}.tar.gz      
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  cmake3
-BuildRequires:  python-mako
-BuildRequires:  python-six
+BuildRequires:  python3-mako
+BuildRequires:  python3-six
 BuildRequires:  boost-devel
 BuildRequires:  orc-devel
 
@@ -36,11 +36,14 @@ Python files for %{name}.
 %setup
 
 %build
-cmake3 -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DLIB_SUFFIX=64 -DLIB_INSTALL_DIR:PATH=/usr/lib64
+mkdir build 
+cd build
+cmake3 ../ -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=/usr -DLIB_SUFFIX=64 -DLIB_INSTALL_DIR:PATH=/usr/lib64
 
 make %{?_smp_mflags}
 
 %install
+cd build
 rm -rf $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
 
