@@ -32,4 +32,4 @@ rpm: download
 	  --define "_sourcedir %{_topdir}/rpmbuild/SOURCES" \
 	  --define "VERSION $(version)" \
  	  --define "RELEASE $(release)" \
-	  -ba $(name).spec
+	  -bs $(name).spec

@@ -1,6 +1,6 @@
 Name:           volk
-Version:        2.0.0
-Release:        1%{?dist}
+Version:        %{VERSION}
+Release:        %{RELEASE}%{?dist}
 Summary:        The Vector Optimized Library of Kernels 
 Group:          System Environment/Libraries
 License:		GPLv3
